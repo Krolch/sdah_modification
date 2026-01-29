@@ -638,4 +638,14 @@ tags: nonfactional_advisor
 
 Friedrich Stampfer is now an advisor.
 
+@add_stalin
+title: Josif Stalin
+subtitle: Stalin is a long-time SPD bandit, who in his time led a rogue Georgia Workers' State during 1905 revolution. He is known for his ruthless tactics and strong leadership skills.
+is-card: true
+card-image: img/portraits/StalinJosif.jpg
+view-if: stalin_advisor = 0 and n_advisors < 3
+on-arrival: stalin_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+tags: nonfactional_advisor
 
+Josif Stalin is now an advisor.
