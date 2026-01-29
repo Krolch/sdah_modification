@@ -1,0 +1,44 @@
+title: Josif Stalin
+is-pinned-card: true 
+tags: advisor
+card-image: img/portraits/BreitscheidRudolf.jpg
+new-page: true
+view-if: stalin_advisor = 1
+
+= Josif Stalin
+
+Stalin is a long-time SPD bandit, who in his time led a rogue Georgia Workers' State during 1905 revolution. He is known for his ruthless tactics and strong leadership skills.
+
+- @emergency_fundraising
+- @stalin_international
+- @party_discipline
+- @snap_election
+- @root: Return to main
+
+@stalin_international
+title: International Party Relations
+subtitle: Stalin is one of our contacts with international socialist parties.
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer == 0
+on-arrival: advisor_action_timer = 6; international_relations_timer -= 12; last_advisor_action = 1
+go-to: international_relations
+
+
+@emergency_fundraising
+title: Emergency Extortion
+subtitle: Based on his previous great robbery, our party acquired more funds for its activity.
+view-if: difficulty < 1
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; resources += dues
+
+We have gained +[+ dues +] resources.
+
+@party_discipline
+title: Party Discipline
+subtitle: Reduce dissent across the party.
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; left_dissent -= 5; labor_dissent -= 10; center_dissent -= 10; reformist_dissent -= 10; neorevisionist_dissent -= 5
+
+We have enforced party discipline to reduce dissent across all factions.
